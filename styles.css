@@ -1,0 +1,238 @@
+/* 🌟 Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-color: #eef2f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 🌟 Container */
+.container {
+    max-width: 450px;
+    width: 90%;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+/* 🌟 Headings */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* 🌟 Make Inputs & Buttons the Same Width */
+input {
+    width:  93%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+}
+
+button {
+    width: 100%; 
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* 🌟 Input Field Styles */
+input {
+    border: 2px solid #ced4da;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+/* 🌟 Input Focus Effect */
+input:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: white;
+}
+
+/* 🌟 Primary Action Buttons (Login & Register) */
+.primary-btn {
+    background-color: #007bff; /* Blue */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+/* 🌟 Add Funds Button */
+.add-btn {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+/* 🌟 Remove Funds Button */
+.remove-btn {
+    background-color: #dc3545;
+    color: white;
+    font-weight: bold;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+}
+
+/* 🌟 Logout Button */
+.logout-btn {
+    background-color: #6c757d;
+    color: white;
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background-color: #5a6268;
+}
+
+/* 🌟 Transaction History */
+h3 {
+    font-size: 20px;
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+/* 🌟 Transaction List */
+.transaction-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 15px;
+}
+
+/* 🌟 Individual Transaction */
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* 🌟 Transaction Type Styling */
+.income {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.expense {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* 🌟 Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 25px;
+    }
+
+    input, button {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+/* 🌟 Transaction History Page Styling */
+.history-btn {
+    background-color: #6A0DAD; /* Purple */
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.history-btn:hover {
+    background-color: #53098F;
+}
+
+/* 🌟 Back Button */
+.back-btn {
+    background-color: #6A0DAD;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.back-btn:hover {
+    background-color: #53098F;
+}
+
+/* 🌟 Transaction List Styling */
+#transaction-container {
+    margin-top: 20px;
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 🌟 Daily Transactions */
+.transaction-day {
+    background: #F5F5F5;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* 🌟 Transaction Entry */
+.transaction-entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 🌟 Positive & Negative Styling */
+.positive {
+    color: #28A745;
+    font-weight: bold;
+}
+
+.negative {
+    color: #DC3545;
+    font-weight: bold;
+}
