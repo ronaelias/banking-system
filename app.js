@@ -174,20 +174,3 @@ function showLogin() {
     document.getElementById('register').style.display = 'none';
     document.getElementById('login').style.display = 'block';
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    const userId = localStorage.getItem('userId');
-    const username = localStorage.getItem('username');
-
-    if (userId) {
-        document.getElementById('login').style.display = 'none';
-        document.getElementById('register').style.display = 'none';
-        document.getElementById('dashboard').style.display = 'block';
-        document.getElementById('user-name').innerText = username;
-        
-        if (localStorage.getItem('reloadBalance') === 'true') {
-            updateBalance(); // ✅ Reload balance when returning
-            localStorage.removeItem('reloadBalance'); // Clear the flag
-        }
-    }
-});

@@ -7,24 +7,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const path = require('path');
-
-// ✅ Serve static files (HTML, CSS, JS) from the project root
-app.use(express.static(__dirname));
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-// ✅ Serve transactions page
-app.get('/transactions.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'transactions.html'));
-});
-
-app.listen(5000, () => {
-    console.log('✅ Server running on http://127.0.0.1:5000');
-});
-
 // Database connection
 const db = mysql.createConnection({
   host: 'localhost',
@@ -152,23 +134,6 @@ app.get('/balance/:userId', (req, res) => {
     });
 });
 
-app.get('/transactions/:userId', (req, res) => {
-  const userId = req.params.userId;
-  const date = req.query.date || null;
-
-  let query = 'SELECT * FROM transactions WHERE user_id = ?';
-  let params = [userId];
-
-  if (date) {
-      query += ' AND DATE(date) = ?';
-      params.push(date);
-  }
-
-  db.query(query, params, (err, results) => {
-      if (err) {
-          console.error("Transaction Fetch Error:", err);
-          return res.status(500).send({ success: false, message: "Database error" });
-      }
-      res.send({ transactions: results });
-  });
+app.listen(5000, () => {
+  console.log('Server running on port 5000...'); 
 });
