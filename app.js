@@ -138,22 +138,27 @@ async function loadTransactions() {
     const response = await fetch(`http://localhost:5000/transactions/${userId}`);
     const data = await response.json();
     const transactionList = document.getElementById('transaction-list');
-    transactionList.innerHTML = '';
+    transactionList.innerHTML = ''; // Clear previous entries
 
     data.transactions.forEach(transaction => {
         const li = document.createElement('li');
         li.classList.add('transaction-item');
-        
-        // Format Amount
+
+        // Format Amount with Color
         let amountText = `$${Math.abs(transaction.amount).toFixed(2)}`;
+        amountText = transaction.amount > 0 
+            ? `<span class="income">+${amountText}</span>` 
+            : `<span class="expense">-${amountText}</span>`;
 
-        if (transaction.amount > 0) {
-            amountText = `<span class="income">+${amountText}</span>`;
-        } else {
-            amountText = `<span class="expense">-${amountText}</span>`;
-        }  
+        // Create Transaction List Item
+        li.innerHTML = `
+            <div>
+                <strong>${transaction.description}</strong> <br>
+                <small>${new Date(transaction.transaction_date).toLocaleString()}</small>
+            </div>
+            <div>${amountText}</div>
+        `;
 
-        li.innerHTML = `<span>${transaction.description}</span> ${amountText}`;
         transactionList.appendChild(li);
     });
 }

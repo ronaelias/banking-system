@@ -137,3 +137,16 @@ app.get('/balance/:userId', (req, res) => {
 app.listen(5000, () => {
   console.log('Server running on port 5000...'); 
 });
+
+app.get('/transactions/:userId', (req, res) => {
+  const userId = req.params.userId;
+  const query = 'SELECT * FROM transactions WHERE user_id = ? ORDER BY transaction_date DESC';
+
+  db.query(query, [userId], (err, results) => {
+      if (err) {
+          console.error("Error fetching transactions:", err);
+          return res.status(500).send({ success: false, message: "Database error" });
+      }
+      res.send({ transactions: results });
+  });
+});

@@ -168,3 +168,13 @@ h3 {
         padding: 12px;
     }
 }
+
+/* Ensure transaction history section has a fixed height with scrolling */
+.transaction-list {
+    max-height: 200px; /* Adjust height as needed */
+    overflow-y: auto;  /* Enables scrolling */
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+}
