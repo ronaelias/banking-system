@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="dashboard">
+            <div class="dashboard-container">
+                <!-- Left Section: Balance & Add/Remove Funds -->
+                <div class="left-section">
+                    <h1>💰 Expenses Tracking</h1> <!-- ✅ Keep only ONE heading -->
+                    <h2>Welcome, <span id="user-name"></span>!</h2>
+                    <h2>Your Balance: <span id="balance">$0.00</span></h2>
+
+                    <input type="number" id="amount" placeholder="Enter Amount">
+                    <input type="text" id="description" placeholder="Description">
+
+                    <button class="add-btn" onclick="addFunds()">
+                        <i class="fas fa-plus-circle"></i> Add To Wallet
+                    </button>
+
+                    <button class="remove-btn" onclick="removeFunds()">
+                        <i class="fas fa-minus-circle"></i> Remove From Wallet
+                    </button>
+                </div>
+
+                <!-- Right Section: Transaction History & Logout -->
+                <div class="right-section">
+                    <h2>Transaction History</h2>
+                    <ul id="transaction-list" class="transaction-list"></ul>
+
+                    <button class="logout-btn" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

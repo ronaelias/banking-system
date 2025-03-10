@@ -2,10 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
+// ✅ Serve static files from the "public" folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Database connection
 const db = mysql.createConnection({
@@ -134,8 +138,13 @@ app.get('/balance/:userId', (req, res) => {
     });
 });
 
+// ✅ Redirect root URL to index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 app.listen(5000, () => {
-  console.log('Server running on port 5000...'); 
+  console.log('✅ Server running on PORT 5000'); 
 });
 
 app.get('/transactions/:userId', (req, res) => {

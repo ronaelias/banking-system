@@ -1,0 +1,275 @@
+/* 🌟 Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-color: #eef2f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 🌟 Main Container */
+.container {
+    max-width: 1000px; /* Increased for a wider layout */
+    width: 90%;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+/* 🌟 Headings */
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* 🌟 Input Fields */
+input {
+    width: 90%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    border: 2px solid #ced4da;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: white;
+}
+
+/* 🌟 Buttons */
+button {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* ✅ Login/Register Button */
+.primary-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+/* ✅ Add Funds Button */
+.add-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+/* ✅ Remove Funds Button */
+.remove-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+}
+
+/* ✅ Logout Button */
+.logout-btn {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+}
+
+.logout-btn:hover {
+    background-color: #5a6268;
+}
+
+/* 🌟 Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    justify-content: space-between; /* Splits left & right */
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 900px; /* Ensure it stretches */
+    margin: auto;
+    margin-top: 20px;
+}
+
+/* ✅ Left Section (Balance & Funds Management) */
+.left-section, .right-section {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-height: 500px; /* Set a fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ✅ Right Section (Transaction History) */
+.right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ✅ Transaction List */
+.transaction-list {
+    width: 100%;
+    max-height: 323px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    flex-grow: 1;
+}
+
+/* ✅ Transaction Item */
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* ✅ Income (Green) & Expense (Red) */
+.income {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.expense {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* 🌟 Auth Page (Login & Register) Styling */
+.auth-container {
+    max-width: 400px;
+    width: 100%;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.auth-container h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.auth-container h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.auth-container input {
+    width: 90%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    border: 2px solid #ced4da;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.auth-container input:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: white;
+}
+
+/* ✅ Login/Register Button */
+.auth-container .primary-btn {
+    width: 97%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.auth-container .primary-btn:hover {
+    background-color: #0056b3;
+}
+
+/* ✅ Register & Login Switch Links */
+.auth-container p {
+    font-size: 14px;
+    color: #333;
+}
+
+.auth-container a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.auth-container a:hover {
+    text-decoration: underline;
+}
+
+/* 🌟 Responsive Design */
+@media (max-width: 768px) {
+    .auth-container {
+        width: 95%;
+        padding: 30px;
+    }
+
+    .dashboard-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-section, .right-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
