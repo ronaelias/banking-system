@@ -149,9 +149,15 @@ app.listen(5000, () => {
 
 app.get('/transactions/:userId', (req, res) => {
   const userId = req.params.userId;
-  const query = 'SELECT * FROM transactions WHERE user_id = ? ORDER BY transaction_date DESC';
+  const selectedDate = req.query.date;
 
-  db.query(query, [userId], (err, results) => {
+  if (!selectedDate) {
+      return res.status(400).send({ success: false, message: "Date is required" });
+  }
+
+  const query = 'SELECT * FROM transactions WHERE user_id = ? AND DATE(transaction_date) = ? ORDER BY transaction_date DESC';
+
+  db.query(query, [userId, selectedDate], (err, results) => {
       if (err) {
           console.error("Error fetching transactions:", err);
           return res.status(500).send({ success: false, message: "Database error" });

@@ -23,7 +23,10 @@ async function updateBalance() {
 }
 
 async function loadTransactions() {
-    const response = await fetch(`http://localhost:5000/transactions/${userId}`);
+    const selectedDate = document.getElementById('transaction-date').value;
+    if (!selectedDate) return;
+
+    const response = await fetch(`http://localhost:5000/transactions/${userId}?date=${selectedDate}`);
     const data = await response.json();
     const transactionList = document.getElementById('transaction-list');
     transactionList.innerHTML = '';
@@ -34,13 +37,21 @@ async function loadTransactions() {
         li.innerHTML = `
             <div>
                 <strong>${transaction.description}</strong> <br>
-                <small>${new Date(transaction.transaction_date).toLocaleString()}</small>
+                <small>${new Date(transaction.transaction_date).toLocaleTimeString()}</small>
             </div>
             <div>${transaction.amount > 0 ? `<span class="income">+${transaction.amount}</span>` : `<span class="expense">${transaction.amount}</span>`}</div>
         `;
         transactionList.appendChild(li);
     });
 }
+
+// Ensure the date picker doesn't allow selecting future dates
+document.addEventListener("DOMContentLoaded", function () {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('transaction-date').setAttribute('max', today);
+    document.getElementById('transaction-date').value = today; // Default to today
+    loadTransactions();
+});
 
 async function addFunds() {
     const amount = parseFloat(document.getElementById('amount').value);

@@ -13,7 +13,7 @@
             <div class="dashboard-container">
                 <!-- Left Section: Balance & Add/Remove Funds -->
                 <div class="left-section">
-                    <h1>💰 Expenses Tracking</h1> <!-- ✅ Keep only ONE heading -->
+                    <h1>💰 Expenses Tracking</h1>
                     <h2>Welcome, <span id="user-name"></span>!</h2>
                     <h2>Your Balance: <span id="balance">$0.00</span></h2>
 
@@ -32,6 +32,8 @@
                 <!-- Right Section: Transaction History & Logout -->
                 <div class="right-section">
                     <h2>Transaction History</h2>
+                    <!-- Date Picker for Selecting Transaction History -->
+                    <input type="date" id="transaction-date" onchange="loadTransactions()" max="">
                     <ul id="transaction-list" class="transaction-list"></ul>
 
                     <button class="logout-btn" onclick="logout()">

@@ -149,7 +149,7 @@ button {
 /* ✅ Transaction List */
 .transaction-list {
     width: 100%;
-    max-height: 323px;
+    max-height: 250px;
     overflow-y: auto;
     border: 1px solid #ddd;
     padding: 10px;
