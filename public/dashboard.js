@@ -18,7 +18,7 @@ async function updateBalance() {
         return;
     }
 
-    document.getElementById('balance').innerText = `$${data.balance.toFixed(2)}`;
+    document.getElementById('balance').innerText = `$${data.balance.toFixed(2)}`; 
     loadTransactions();
 }
 
