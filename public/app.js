@@ -4,7 +4,7 @@ async function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     
-    const response = await fetch(`http://localhost:5000/login`, {
+    const response = await fetch(`http://localhost:8000/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -17,7 +17,7 @@ async function login() {
         localStorage.setItem('username', username);
 
         // ✅ Redirect to Dashboard
-        window.location.href = "http://127.0.0.1:5000/dashboard.html";
+        window.location.href = "http://127.0.0.1:8000/dashboard.html";
     } else {
         alert('Invalid credentials');
     }
@@ -32,7 +32,7 @@ async function register() {
         return;
     }
 
-    const response = await fetch(`http://localhost:5000/register`, {
+    const response = await fetch(`http://localhost:8000/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
