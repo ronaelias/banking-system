@@ -143,8 +143,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(5000, () => {
-  console.log('✅ Server running on PORT 5000'); 
+app.listen(8000, () => {
+  console.log('✅ Server running on PORT 8000!!'); 
 });
 
 app.get('/transactions/:userId', (req, res) => {
