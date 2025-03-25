@@ -128,7 +128,7 @@ button {
 .left-section, .right-section {
     flex: 1;
     background: white;
-    padding: 25px;
+    padding: 15px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -149,7 +149,7 @@ button {
 /* ✅ Transaction List */
 .transaction-list {
     width: 100%;
-    max-height: 250px;
+    max-height: 170px;
     overflow-y: auto;
     border: 1px solid #ddd;
     padding: 10px;
@@ -272,4 +272,47 @@ button {
         width: 100%;
         margin-bottom: 20px;
     }
+}
+
+.chart-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.chart-btn:hover {
+    background-color: #0056b3;
+}
+
+.back-btn {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.back-btn:hover {
+    background-color: #5a6268;
+}
+
+.chart-container {
+    width: 80%; /* Adjust width */
+    height: 400px; /* Adjust height */
+    max-width: 900px; /* Prevent it from getting too large */
+    margin: auto; /* Center it */
+}
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
 }

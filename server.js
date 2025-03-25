@@ -138,14 +138,16 @@ app.get('/balance/:userId', (req, res) => {
     });
 });
 
-// ✅ Redirect root URL to index.html
+// ✅ Redirect root URL to log.html
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'log.html'));
 });
 
-app.listen(5000, () => {
-  console.log('✅ Server running on PORT 5000'); 
-});
+if (require.main === module) {
+  app.listen(5000, () => {
+    console.log('✅ Server running on PORT 5000'); 
+  });
+}
 
 app.get('/transactions/:userId', (req, res) => {
   const userId = req.params.userId;
@@ -165,3 +167,24 @@ app.get('/transactions/:userId', (req, res) => {
       res.send({ transactions: results });
   });
 });
+
+app.get('/balance-history/:userId', (req, res) => {
+  const userId = req.params.userId;
+
+  const query = `
+      SELECT transaction_date, 
+             SUM(amount) OVER (ORDER BY transaction_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS balance
+      FROM transactions
+      WHERE user_id = ?
+      ORDER BY transaction_date;
+  `;
+
+  db.query(query, [userId], (err, results) => {
+      if (err) {
+          console.error("Balance history fetch error:", err);
+          return res.status(500).send({ success: false, message: "Database error" });
+      }
+      res.send({ history: results });
+  });
+});
+module.exports = app;

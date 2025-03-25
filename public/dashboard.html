@@ -32,6 +32,9 @@
                 <!-- Right Section: Transaction History & Logout -->
                 <div class="right-section">
                     <h2>Transaction History</h2>
+                    <button class="chart-btn" onclick="goToChartPage()">
+                        📈 View Balance Chart
+                    </button>                  
                     <!-- Date Picker for Selecting Transaction History -->
                     <input type="date" id="transaction-date" onchange="loadTransactions()" max="">
                     <ul id="transaction-list" class="transaction-list"></ul>

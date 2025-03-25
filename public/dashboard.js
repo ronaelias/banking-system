@@ -1,6 +1,6 @@
 let userId = localStorage.getItem('userId');
 if (!userId) {
-    window.location.href = "index.html"; // Redirect to login if not authenticated
+    window.location.href = "log.html"; // Redirect to login if not authenticated
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -108,7 +108,11 @@ async function removeFunds() {
     }
 }
 
+function goToChartPage() {
+    window.location.href = "chart.html";
+}
+
 function logout() {
     localStorage.clear();
-    window.location.href = "index.html";
+    window.location.href = "log.html";
 }
