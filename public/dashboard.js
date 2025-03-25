@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 async function updateBalance() {
-    const response = await fetch(`http://localhost:5000/balance/${userId}`);
+    const response = await fetch(`http://localhost:8000/balance/${userId}`);
     const data = await response.json();
 
     if (typeof data.balance !== 'number') {
@@ -26,7 +26,7 @@ async function loadTransactions() {
     const selectedDate = document.getElementById('transaction-date').value;
     if (!selectedDate) return;
 
-    const response = await fetch(`http://localhost:5000/transactions/${userId}?date=${selectedDate}`);
+    const response = await fetch(`http://localhost:8000/transactions/${userId}?date=${selectedDate}`);
     const data = await response.json();
     const transactionList = document.getElementById('transaction-list');
     transactionList.innerHTML = '';
@@ -62,7 +62,7 @@ async function addFunds() {
         return;
     }
 
-    await fetch(`http://localhost:5000/updateBalance`, {
+    await fetch(`http://localhost:8000/updateBalance`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId, amount, description })
@@ -83,7 +83,7 @@ async function removeFunds() {
     }
 
     try {
-        const response = await fetch(`http://localhost:5000/updateBalance`, {
+        const response = await fetch(`http://localhost:8000/updateBalance`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userId, amount: -amount, description })
